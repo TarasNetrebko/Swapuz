@@ -4,15 +4,52 @@
 <!--    ///-->
     <div class="mob-header">
         <div class="menu-button--wrapper">
-                <div class="menu-button" :class="{ 'menu-button--active': isDropMenu }" @click="isDropMenu = !isDropMenu">
+                <div class="menu-button" :class="{ 'menu-button--active': isDropMenu }" @click="isDropMenu = true">
                     <img src="../assets/menu-button.svg" alt="menu-button">
-                    <div v-if="isDropMenu" class="drop-menu" >
-                        <a href="" class="nav-link">How to use</a>
-                        <a href="" class="nav-link">About</a>
-                        <a href="" class="nav-link">Support</a>
-                        <a href="" class="nav-link">Contact</a>
-                    </div>
                 </div>
+        </div>
+        <div v-if="isDropMenu" class="drop-menu" :class="{'drop-menu--closed': isDropMenu}" >
+            <div class="drop-menu-head">
+                    <div class="drop-menu-head-country--wrapper" :class="{ 'nav-link--active': isDropCountry }" @click="isDropCountry = !isDropCountry">
+                        <div class="drop-menu-head-country-flag"></div>
+                        Poland
+                        <img src="../assets/arrowDown.svg" alt="option-button" />
+                        <div v-if="isDropCountry" class="drop-select">
+                            <p>England</p>
+                            <p>France</p>
+                            <p>Ukraine</p>
+                        </div>
+                    </div>
+                <button type="button" class="drop-menu-head-close" @click="isDropMenu = false; isDropCountry = false; isDropPartners = false">
+                    <img class="drop-menu-head-close-cross" src="../assets/closeCross.svg" alt="close">
+                </button>
+            </div>
+            <nav class="drop-menu-nav">
+                <a href="" class="drop-menu-nav-link">Main</a>
+                <a href="" class="drop-menu-nav-link">About</a>
+                <a href="" class="drop-menu-nav-link">Contacts</a>
+                <div class="drop-menu-nav-link" :class="{ 'nav-link--active': isDropPartners }" @click="isDropPartners = !isDropPartners">
+                    Partners
+                    <img src="../assets/arrowDown.svg" alt="option-button" />
+                </div>
+                <div v-if="isDropPartners" class="drop-menu-nav-optional">
+                    <a class="drop-menu-nav-optional-link" href="">Affiliate program</a>
+                    <a class="drop-menu-nav-optional-link" href="">
+                        API Documentation
+                        <div class="drop-menu-nav-optional-link-mark">
+                            New
+                        </div>
+                    </a>
+                </div>
+                <a href="" class="drop-menu-nav-link">Support</a>
+                <a href="" class="drop-menu-nav-link">How to use</a>
+            </nav>
+            <div class="drop-menu-footer">
+                <button class="drop-menu-footer-auth" type="button">
+                    Log in
+                    <img src="../assets/mobAuth.svg" alt="auth">
+                </button>
+            </div>
         </div>
         <div class="logo-header">
             <img src="../assets/logo-mob-header.svg" alt="logo" />
@@ -20,11 +57,6 @@
             <div class="nav-link mob-country-link" :class="{ 'nav-link--active': isDropCountry }" @click="isDropCountry = !isDropCountry">
                 <div class="country-flag"></div>
                 PL
-                <div v-if="isDropCountry" class="drop-select">
-                    UK
-                    FR
-                    UKR
-                </div>
             </div>
     </div>
 <!--///-->
@@ -79,7 +111,7 @@ export default {
         isDropSupport: false,
         isDropPartners: false,
         isDropCountry: false,
-        isDropMenu: false
+        isDropMenu: false,
     }
   }
 }
@@ -98,18 +130,21 @@ export default {
     height: 64px;
     color: #fff;
   }
-  .menu-button--wrapper {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    background: #29282A;
-    margin-left: 12px;
-  }
   .menu-button {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
     background: #29282A;
+    &--wrapper {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        background: #29282A;
+        margin-left: 12px;
+    }
   }
   .country-flag {
     width: 16px;
@@ -134,25 +169,147 @@ export default {
   }
   .drop-select {
     position: absolute;
+      width: 100%;
     top: calc(100% + 5px);
     left: 0;
+    z-index: 3;
+      display: flex;
+      flex-direction: column;
+      & p {
+          display: block;
+          text-align: center;
+      }
   }
-  .menu-button {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        position: relative;
-  }
-    .drop-menu {
+  .drop-menu {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
         position: absolute;
         top: 0;
-        left: calc(100% + 5px);
-        min-width: 100px;
-    }
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 2;
+        background: #1B1A1C;
+        &-footer {
+            padding: 16px;
+            height: 80px;
+            width: 100%;
+            &-auth {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 48px;
+                width: 100%;
+                border-radius: 8px;
+                background: #02C076;
+                color: #1B1A1C;
+                text-align: center;
+                font-family: Inter, serif;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 20px;
+                & img {
+                    margin-left: 8px;
+                }
+            }
+        }
+        &-head {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 64px;
+            padding: 12px;
+            &-country--wrapper {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                position: relative;
+                height: 40px;
+                padding: 0 16px;
+                border-radius: 8px;
+                background: var(--gray-card, #29282A);
+                color: #FFF;
+                font-family: Inter, serif;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 24px;
+                & img {
+                    margin-left: 2px;
+                }
+            }
+            &-close {
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 8px;
+                background: var(--gray-card, #29282A);
+            }
+            &-country-flag {
+                width: 16px;
+                height: 12px;
+                margin-right: 12px;
+                background-color: #fff;
+            }
+        }
+        &-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            &-link {
+                color: #FFF;
+                font-family: Inter, serif;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 24px;
+                &:not(:last-child) {
+                    margin-bottom: 32px;
+                }
+            }
+            &-optional {
+                width: 100%;
+                height: 88px;
+                &-link {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 20px;
+                    color: rgba(255, 255, 255, 0.72);
+                    text-align: center;
+                    font-family: Inter, serif;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 24px;
+                    &-mark {
+                        text-align: center;
+                        font-family: Inter, serif;
+                        font-size: 12px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 16px;
+                        margin-left: 10px;
+                        padding: 1px 4px;
+                        border-radius: 4px;
+                        background: #FF783E;
+                        color: #29282A;
+                    }
+                }
+            }
+        }
+  }
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1200px) {
     .mob-header {
       display: none;
     }
@@ -185,22 +342,22 @@ export default {
       flex-direction: row;
       align-items: center;
       margin-left: 50px;
+        &-link {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            position: relative;
+            color: white;
+            &:not(:first-child) {
+                margin-left: 40px;
+            }
+            &--active {
+                img {
+                    transform: rotate(-180deg);
+                }
+            }
+        }
     }
-  .nav-link {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: relative;
-    color: white;
-    &:not(:first-child) {
-      margin-left: 40px;
-    }
-    &--active {
-      img {
-        transform: rotate(-180deg);
-      }
-    }
-  }
     .drop-select {
       position: absolute;
       top: calc(100% + 5px);

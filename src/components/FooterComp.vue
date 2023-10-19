@@ -13,32 +13,32 @@
                         </p>
                     </section>
                     <section class="contacts">
-                        <div class="company-links-container">
+                        <div class="contacts-links-container">
                             <b class="contacts-header">Company</b>
-                            <ul class="support-links">
-                                <li class="contact-link">
+                            <ul class="contacts-links">
+                                <li class="contacts-link">
                                     <a href="">About</a>
                                 </li>
-                                <li class="contact-link">
+                                <li class="contacts-link">
                                     <a href="">Contacts</a>
                                 </li>
                             </ul>
                         </div>
-                        <div class="company-links-container">
+                        <div class="contacts-links-container">
                             <b class="contacts-header">Support</b>
-                            <ul class="support-links">
-                                <li class="contact-link">
+                            <ul class="contacts-links">
+                                <li class="contacts-link">
                                     <a href="">How to use</a>
                                 </li>
-                                <li class="contact-link">
+                                <li class="contacts-link">
                                     <a href="">Youtube tutorial</a>
                                 </li>
-                                <li class="contact-link">
+                                <li class="contacts-link">
                                     <a href="">FAQ</a>
                                 </li>
                             </ul>
                         </div>
-                        <div class="company-links-container">
+                        <div class="contacts-links-container">
                             <b class="contacts-header">Follow Us</b>
                             <ul class="social-networks">
                                 <li class="social-link">
@@ -81,7 +81,7 @@
                     in one click!
                 </p>
             <section class="contacts">
-                <div class="company-links-container socials">
+                <div class="contacts-links-container socials">
                     <b class="contacts-header">Follow Us</b>
                     <ul class="social-networks">
                         <li class="social-link">
@@ -98,28 +98,28 @@
                         </li>
                     </ul>
                 </div>
-                <div class="company-links--wrapper">
-                    <div class="company-links-container company-links">
+                <div class="contacts-links--wrapper">
+                    <div class="contacts-links-container company-links">
                         <b class="contacts-header">Company</b>
-                        <ul class="support-links">
-                            <li class="contact-link">
+                        <ul class="contacts-links">
+                            <li class="contacts-link">
                                 <a href="">About</a>
                             </li>
-                            <li class="contact-link">
+                            <li class="contacts-link">
                                 <a href="">Contacts</a>
                             </li>
                         </ul>
                     </div>
-                    <div class="company-links-container company-links">
+                    <div class="contacts-links-container company-links">
                         <b class="contacts-header">Support</b>
-                        <ul class="support-links">
-                            <li class="contact-link">
+                        <ul class="contacts-links">
+                            <li class="contacts-link">
                                 <a href="">How to use</a>
                             </li>
-                            <li class="contact-link">
+                            <li class="contacts-link">
                                 <a href="">Youtube tutorial</a>
                             </li>
-                            <li class="contact-link">
+                            <li class="contacts-link">
                                 <a href="">FAQ</a>
                             </li>
                         </ul>
@@ -186,13 +186,28 @@
         flex-direction: column;
         align-items: center;
         margin-top: 48px;
-    }
-    .rights-links--wrapper {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-around;
+        &-links--wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            margin-bottom: 50px;
+        }
+        &-link {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+        &-link a {
+            display: block;
+            color: #02c076;
+            font-family: Inter, serif;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+        }
     }
     .copyright {
         color: rgba(255, 255, 255, 0.38);
@@ -203,20 +218,6 @@
         font-weight: 400;
         line-height: 20px;
         margin-right: 4px;
-    }
-    .rights-link {
-        display: flex;
-        flex-direction: column;
-        margin-top: 20px;
-    }
-    .rights-link a {
-        display: block;
-        color: #02c076;
-        font-family: Inter, serif;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 20px;
     }
     .underline-term {
         width: 79px;
@@ -234,41 +235,41 @@
         align-items: center;
         width: 100%;
         margin-top: 24px;
-    }
-    .company-links-container {
-        display: flex;
-        flex-direction: column;
-    }
-    .company-links--wrapper {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        width: 100%;
-        margin-top: 42px;
-    }
-    .company-links:first-child {
-        margin-right: 40px;
-    }
-    .contact-link a {
-        color: #fff;
-        font-family: Inter, serif;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 24px;
-    }
-    .contact-link {
-        margin-top: 12px;
-        text-align: center;
-    }
-    .contacts-header {
-        text-align: center;
-        color: rgba(255, 255, 255, 0.38);
-        font-family: Inter, serif;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 24px;
+        &-links-container {
+            display: flex;
+            flex-direction: column;
+        }
+        &-links--wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 42px;
+        }
+        &-links:first-child {
+            margin-right: 40px;
+        }
+        &-link a {
+            color: #fff;
+            font-family: Inter, serif;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 24px;
+        }
+        &-link {
+            margin-top: 12px;
+            text-align: center;
+        }
+        &-header {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.38);
+            font-family: Inter, serif;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+        }
     }
     .social-networks {
         display: flex;
@@ -300,7 +301,7 @@
         width: 100%;
     }
 }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
       .mob {
           display: none;
       }
@@ -332,18 +333,18 @@
           flex-direction: row;
           align-items: start;
           margin-left: 88px;
-      }
-      .company-links-container {
-          display: flex;
-          flex-direction: column;
-          align-items: start;
-          width: 120px;
-      }
-      .contact-link {
-          text-align: start;
-      }
-      .company-links-container:not(:last-child) {
-          margin-right: 48px;
+          &-links-container {
+              display: flex;
+              flex-direction: column;
+              align-items: start;
+              width: 120px;
+          }
+          &-link {
+              text-align: start;
+          }
+          &-links-container:not(:last-child) {
+              margin-right: 48px;
+          }
       }
       .social-link {
           width: 40px;
