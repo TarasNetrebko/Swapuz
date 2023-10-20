@@ -33,25 +33,45 @@
                 <div class="exchange-header">
                     <h2 class="exchange-title">Exchange</h2>
                     <div class="exchange-help">
-                        wewr
-                        erwe
-                        wer
+                        <img src="../../assets/lock.svg" alt="lock">
+                        <p>Fixed rate</p>
+                        <img src="../../assets/help.svg" alt="help icon">
                     </div>
                 </div>
                 <div class="exchange-send">
-                    <input type="number" class="exchange-send-input">
-                    <div class="exchange-send-currency"></div>
+                    <label class="exchange-send-label">
+                        <span class="exchange-send-label-title">You send</span>
+                        <input type="number" class="exchange-send-input">
+                    </label>
+                    <div class="exchange-send-currency">
+                        <img class="exchange-send-currency-icon" src="" alt="currency icon">
+                        <div class="exchange-send-currency-name">
+                            <p class="exchange-send-currency-name-abbreviation">BTC</p>
+                            <p class="exchange-send-currency-name-abbreviation-2">BNC</p>
+                        </div>
+                        <img class="exchange-send-currency-arrow" src="../../assets/arrowDownExchange.svg" alt="arrow">
+                    </div>
                 </div>
                 <div class="exchange-middleware">
                     <p class="exchange-middleware-range">Amount range</p>
                     <img class="exchange-middleware-icon" src="../../assets/exchangeIcon.svg" alt="exchange icon">
                 </div>
                 <div class="exchange-get">
-                    <input type="number" class="exchange-get-input">
-                    <div class="exchange-get-currency"></div>
+                    <label class="exchange-get-label">
+                        <span class="exchange-get-label-title">You get</span>
+                        <input type="number" class="exchange-get-input">
+                    </label>
+                    <div class="exchange-get-currency">
+                        <img class="exchange-get-currency-icon" src="" alt="currency icon">
+                        <div class="exchange-get-currency-name">
+                            <p class="exchange-get-currency-name-abbreviation">ETH</p>
+                            <p class="exchange-get-currency-name-abbreviation-2">ERC20</p>
+                        </div>
+                        <img class="exchange-get-currency-arrow" src="../../assets/arrowDownExchange.svg" alt="arrow">
+                    </div>
                 </div>
                 <div class="exchange-get-single">
-                    <p>sdfsfsdf</p>
+                    <p>some wild numbeeeeers</p>
                 </div>
                 <button class="exchange-button" type="submit">Exchange now</button>
             </div>
@@ -160,24 +180,103 @@ export default {
             font-weight: 900;
             line-height: 24px;
         }
+        &-help {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 124px;
+            height: 24px;
+            cursor: pointer;
+            & p {
+                color: var(--green, #02C076);
+                text-align: center;
+                font-family: Inter, serif;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 24px;
+                cursor: pointer;
+            }
+        }
         &-send {
             width: 100%;
             height: 60px;
             display: flex;
             flex-direction: row;
             align-items: center;
-            &-input {
+            &-label {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                padding: 10px 12px 10px 12px;
                 width: 294px;
                 height: 60px;
                 margin-right: 2px;
                 border-radius: 8px 0 0 8px;
                 background: var(--gray-controls, #363537);
+                &-title {
+                    color: var(--white-38, rgba(255, 255, 255, 0.38));
+                    font-family: Inter, serif;
+                    font-size: 12px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 16px;
+                }
+            }
+            &-input {
+                width: 100%;
+                height: 24px;
+                background-color: transparent;
+                border-color: transparent;
+                color: var(--white-100, #FFF);
+                font-family: Inter, serif;
+                font-size: 22px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 24px;
             }
             &-currency {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding: 12px 12px 12px 16px;
                 width: 136px;
                 height: 60px;
                 border-radius: 0 8px 8px 0;
                 background: var(--gray-controls, #363537);
+                &-icon {
+                    display: block;
+                    width: 28px;
+                    height: 28px;
+                    margin-right: 8px;
+                    background-color: #FFFFFF;
+                }
+                &-arrow {
+                    display: block;
+                    margin-left: auto;
+                    width: 24px;
+                    height: 24px;
+                    cursor: pointer;
+                }
+                &-name {
+                    &-abbreviation {
+                        color: var(--white-100, #FFF);
+                        font-family: Inter, serif;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 20px;
+                        &-2 {
+                            color: var(--white-38, rgba(255, 255, 255, 0.38));
+                            font-family: Inter, serif;
+                            font-size: 12px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: 14px;
+                        }
+                    }
+                }
             }
         }
         &-get {
@@ -186,23 +285,91 @@ export default {
             display: flex;
             flex-direction: row;
             align-items: center;
-            &-input {
+            &-label {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                padding: 10px 12px 10px 12px;
                 width: 294px;
                 height: 60px;
                 margin-right: 2px;
                 border-radius: 8px 0 0 8px;
                 background: var(--gray-controls, #363537);
+                &-title {
+                    color: var(--white-38, rgba(255, 255, 255, 0.38));
+                    font-family: Inter, serif;
+                    font-size: 12px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 16px;
+                }
+            }
+            &-input {
+                width: 100%;
+                height: 24px;
+                background-color: transparent;
+                border-color: transparent;
+                color: var(--white-100, #FFF);
+                font-family: Inter, serif;
+                font-size: 22px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 24px;
             }
             &-currency {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding: 12px 12px 12px 16px;
                 width: 136px;
                 height: 60px;
                 border-radius: 0 8px 8px 0;
                 background: var(--gray-controls, #363537);
+                &-icon {
+                    display: block;
+                    width: 28px;
+                    height: 28px;
+                    margin-right: 8px;
+                    background-color: #FFFFFF;
+                }
+                &-arrow {
+                    display: block;
+                    margin-left: auto;
+                    width: 24px;
+                    height: 24px;
+                    cursor: pointer;
+                }
+                &-name {
+                    &-abbreviation {
+                        color: var(--white-100, #FFF);
+                        font-family: Inter, serif;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 20px;
+                        &-2 {
+                            color: var(--white-38, rgba(255, 255, 255, 0.38));
+                            font-family: Inter, serif;
+                            font-size: 12px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: 14px;
+                        }
+                    }
+                }
             }
             &-single {
                 width: 100%;
                 height: 48px;
                 padding: 8px 12px;
+                & p {
+                    color: var(--white-100, #FFF);
+                    font-family: Inter, serif;
+                    font-size: 12px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 16px;
+                }
             }
         }
         &-middleware {
@@ -213,7 +380,19 @@ export default {
             flex-direction: row;
             justify-content: space-between;
             &-range {
+                color: var(--white-38, rgba(255, 255, 255, 0.38));
+                font-family: Inter, serif;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 16px;
                 margin-top: 8px;
+            }
+            &-icon {
+                width: 24px;
+                height: 24px;
+                margin: auto 0;
+                cursor: pointer;
             }
         }
         &-button {
@@ -233,6 +412,7 @@ export default {
             font-style: normal;
             font-weight: 700;
             line-height: 24px;
+            cursor: pointer;
         }
     }
 }

@@ -34,7 +34,19 @@ h5,
 h6 {
   font-weight: inherit;
   font-size: inherit;
-}  body {
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+*:focus {
+  outline: none;
+}
+body {
   height: 100%;
   line-height: 1;
   font-size: 16px;

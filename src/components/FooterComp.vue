@@ -168,6 +168,9 @@
         align-items: center;
         width: 296px;
     }
+    .logo-footer {
+        cursor: pointer;
+    }
     .company-introduce {
         display: flex;
         flex-direction: column;

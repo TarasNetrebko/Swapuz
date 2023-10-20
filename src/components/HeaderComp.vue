@@ -135,6 +135,7 @@ export default {
       flex-direction: row;
       align-items: center;
     background: #29282A;
+      cursor: pointer;
     &--wrapper {
         width: 40px;
         height: 40px;
@@ -211,6 +212,7 @@ export default {
                 font-style: normal;
                 font-weight: 700;
                 line-height: 20px;
+                cursor: pointer;
                 & img {
                     margin-left: 8px;
                 }
@@ -239,6 +241,7 @@ export default {
                 font-style: normal;
                 font-weight: 700;
                 line-height: 24px;
+                cursor: pointer;
                 & img {
                     margin-left: 2px;
                 }
@@ -271,6 +274,7 @@ export default {
                 font-style: normal;
                 font-weight: 700;
                 line-height: 24px;
+                cursor: pointer;
                 &:not(:last-child) {
                     margin-bottom: 32px;
                 }
@@ -291,6 +295,7 @@ export default {
                     font-style: normal;
                     font-weight: 600;
                     line-height: 24px;
+                    cursor: pointer;
                     &-mark {
                         text-align: center;
                         font-family: Inter, serif;
@@ -330,12 +335,14 @@ export default {
     }
     .logo-header {
       margin: 24px 0 36px 0;
+        cursor: pointer;
     }
     .country-switcher {
       display: flex;
       flex-direction: row;
       align-items: center;
       margin-left: 36.06px;
+        cursor: pointer;
     }
     .nav {
       display: flex;
@@ -387,6 +394,7 @@ export default {
       font-style: normal;
       font-weight: 700;
       line-height: 20px;
+        cursor: pointer;
     }
   }
 </style>
