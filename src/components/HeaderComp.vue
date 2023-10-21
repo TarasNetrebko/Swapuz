@@ -93,7 +93,8 @@
                 Partners
                 <img src="../assets/arrowDown.svg" alt="option-button" />
                 <div v-if="isDropPartners" class="drop-select">
-                    test
+                    <p>Affiliate program</p>
+                    <p>API Documentation <span>New</span></p>
                 </div>
             </div>
         </nav>
@@ -367,8 +368,51 @@ export default {
     }
     .drop-select {
       position: absolute;
-      top: calc(100% + 5px);
-      left: 0;
+      top: calc(100% + 16px);
+      left: -16px;
+        width: 200px;
+        height: 104px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 8px;
+        background: var(--gray-card, #29282A);
+        & p {
+            height: 44px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--white-100, #FFF);
+            font-family: Inter, serif;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 24px;
+            &:hover,
+            &:focus {
+                cursor: pointer;
+                background: var(--gray-controls, #363537);
+                backdrop-filter: blur(13.591408729553223px);
+            }
+            & span {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 35px;
+                height: 18px;
+                margin-left: 6px;
+                padding: 1px 4px;
+                border-radius: 4px;
+                background: var(--red, #FF783E);
+                color: var(--gray-card, #29282A);
+                text-align: center;
+                font-family: Inter, serif;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 16px;
+            }
+        }
     }
     .country-flag {
       display: block;
